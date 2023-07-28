@@ -18,6 +18,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import axios from "axios";
 import Chip from "@material-ui/core/Chip";
 import Grid from "@material-ui/core/Grid";
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -92,8 +93,6 @@ export default function Home() {
     <React.Fragment>
       <CssBaseline />
       {loader && <Spinner></Spinner>}
-      {/* <header className="App-header"> */}
-      {/* <Container maxWidth="lg"> */}
       <Header title="FIRE powered by GenAI" />
       <main>
         <MainFeaturedPost post={mainFeaturedPost} />
