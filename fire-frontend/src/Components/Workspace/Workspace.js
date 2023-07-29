@@ -187,6 +187,10 @@ export default function Workspace() {
     setFile2(event);
   };
 
+  const handleChange = event => {
+    setElaboratedIdea(event.target.value);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -415,6 +419,7 @@ export default function Workspace() {
                     fullWidth
                     value={elaboratedIdea}
                     variant="outlined"
+                    onChange={handleChange}
                   />
                   <br /> <br />
                   <Grid container item xs={12} spacing={2}>
@@ -709,7 +714,7 @@ export default function Workspace() {
                     multiline
                     rows={12}
                     fullWidth
-                    defaultValue="Idea here ..."
+                    defaultValue="Start coding"
                     variant="outlined"
                   />
                   <br /> <br />
