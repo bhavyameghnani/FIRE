@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: "Quick Search", url: "#/" },
   { title: "Create Project Workspace", url: "#/workspace" },
-  { title: "My Profile", url: "#/" },
+  { title: "My Profile Analytics", url: "#/profile" },
+  { title: "Contact us", url: "#/contact" },
 ];
 
 export default function Header(props) {
