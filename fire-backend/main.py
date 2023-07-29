@@ -78,11 +78,93 @@ def generateIdeaDetails():
     vectorstore = get_vectorstore(text_chunks)
     response = get_conversation_chain(vectorstore)
     result = response(
-        {"question": "Please help in ebalorating the idea by looking into the existing industry and market trends in 5 to 6 lines"})
+        {"question": "Act as an Innovation specialits and domain expert. Your task is to elaborate the idea by looking into the existing industry and market trends in 7 to 8 lines"})
     print(result['answer'])
     return {'status': 'success', 'data': result['answer']}
-
     # return "Well recieved"
+
+
+@app.route('/generateProblemStatement', methods=['POST'])
+@cross_origin(support_credentials=True)
+def generateProblemStatement():
+    elaboratedIdeaDetails = request.data.decode("utf-8")
+    text_chunks = get_text_chunks(elaboratedIdeaDetails)
+    vectorstore = get_vectorstore(text_chunks)
+    response = get_conversation_chain(vectorstore)
+    result = response(
+        {"question": "Act as an Research Analyst. Your task is to generate the problem statement for the idea. Please highlight the key problem faced by the industry and challenges in 7 to 8 lines"})
+    print(result['answer'])
+    return {'status': 'success', 'data': result['answer']}
+    # return "Well recieved"
+
+
+@app.route('/generateProposedSolution', methods=['POST'])
+@cross_origin(support_credentials=True)
+def generateProposedSolution():
+    ideaProblemDetails = request.data.decode("utf-8")
+    text_chunks = get_text_chunks(ideaProblemDetails)
+    vectorstore = get_vectorstore(text_chunks)
+    response = get_conversation_chain(vectorstore)
+    result = response(
+        {"question": "Act as an Product Associate. Your task is to generate a proposed solution summary from the problem statement and idea shared. Please highlight & summarize the key solutions in 7 to 8 lines"})
+    print(result['answer'])
+    return {'status': 'success', 'data': result['answer']}
+    # return "Well recieved"
+
+
+@app.route('/generateInnovationModules', methods=['POST'])
+@cross_origin(support_credentials=True)
+def generateInnovationModules():
+    ideaProblemSolutionDetails = request.data.decode("utf-8")
+    text_chunks = get_text_chunks(ideaProblemSolutionDetails)
+    vectorstore = get_vectorstore(text_chunks)
+    response = get_conversation_chain(vectorstore)
+    result = response(
+        {"question": "Act as an Business Analyst. Your task is to share a breif summary of how it will help various business stakeholders and how will the idea be able to generate revenue & profits."})
+    print(result['answer'])
+    return {'status': 'success', 'data': result['answer']}
+    # return "Well recieved"
+
+
+@app.route('/generateMarketResearch', methods=['POST'])
+@cross_origin(support_credentials=True)
+def generateMarketResearch():
+    backgroundData = request.data.decode("utf-8")
+    text_chunks = get_text_chunks(backgroundData)
+    vectorstore = get_vectorstore(text_chunks)
+    response = get_conversation_chain(vectorstore)
+    result = response(
+        {"question": "Act as an Market Research Analyst. Your task is to share list of 3 to 4 competitor along with 2 to 3 lines summary of solution they provide. Also, please provide current market trends, emerging tech used in this field and key financial metrics supporting to the background data provided."})
+    print(result['answer'])
+    return {'status': 'success', 'data': result['answer']}
+    # return "Well recieved"
+
+
+@app.route('/generateKeyProblems', methods=['POST'])
+@cross_origin(support_credentials=True)
+def generateKeyProblems():
+    marketData = request.data.decode("utf-8")
+    text_chunks = get_text_chunks(marketData)
+    vectorstore = get_vectorstore(text_chunks)
+    response = get_conversation_chain(vectorstore)
+    result = response(
+        {"question": "Act as an Business Analyst. Your task is to list all the key problems that this solution is trying to solve along with 2-3 lines summary of each key problem identified."})
+    print(result['answer'])
+    return {'status': 'success', 'data': result['answer']}
+    # return "Well recieved"
+
+
+@app.route('/generateUserStakeholders', methods=['POST'])
+@cross_origin(support_credentials=True)
+def generateUserStakeholders():
+    backgroundMarketData = request.data.decode("utf-8")
+    text_chunks = get_text_chunks(backgroundMarketData)
+    vectorstore = get_vectorstore(text_chunks)
+    response = get_conversation_chain(vectorstore)
+    result = response(
+        {"question": "Act as an Business Analyst. Your task is to list all the key stakeholders, benefeciaries and key personas along with 2-3 lines summary for all"})
+    print(result['answer'])
+    return {'status': 'success', 'data': result['answer']}
 
 
 if __name__ == "__main__":

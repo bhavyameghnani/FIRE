@@ -9,6 +9,54 @@ class ServiceCall {
     });
   }
 
+  generateProblemStatement(elaboratedIdeaDetails) {
+    return http.post("/generateProblemStatement", elaboratedIdeaDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
+  generateProposedSolution(ideaProblemDetails) {
+    return http.post("/generateProposedSolution", ideaProblemDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
+  generateInnovationModules(ideaProblemSolutionDetails) {
+    return http.post("/generateInnovationModules", ideaProblemSolutionDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
+  generateMarketResearch(backgroundData) {
+    return http.post("/generateMarketResearch", backgroundData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
+  generateKeyProblems(marketData) {
+    return http.post("/generateKeyProblems", marketData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
+  generateUserStakeholders(backgroundMarketData) {
+    return http.post("/generateUserStakeholders", backgroundMarketData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+
   userSignUp(userDetails) {
     return http.post("/addUser", userDetails, {
       headers: {

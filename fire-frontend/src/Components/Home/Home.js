@@ -18,7 +18,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import axios from "axios";
 import Chip from "@material-ui/core/Chip";
 import Grid from "@material-ui/core/Grid";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
+import ProjectTiles from "./ProjectTiles";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -75,25 +76,11 @@ export default function Home() {
   const [personality, setpersonality] = React.useState("No Record Found");
   const [keywords, setkeywords] = React.useState("No Record Found");
 
-  function handleCategory() {
-    setLoader(true);
-    axios
-      .get("http://localhost:5000/gettweets?user_id=" + username)
-      .then((data) => {
-        console.log(data.data.summary);
-        setsummary(data.data.summary);
-        setlikedislike(data.data.likes);
-        setpersonality(data.data.personality);
-        setkeywords(data.data.keywords);
-        setLoader(false);
-      });
-  }
-
   return (
     <React.Fragment>
       <CssBaseline />
       {loader && <Spinner></Spinner>}
-      <Header title="FIRE powered by Generative AI" />
+      <Header title="FIRE: From Ideas to Reality powered by Generative AI" />
       <main>
         <MainFeaturedPost post={mainFeaturedPost} />
 
@@ -108,84 +95,20 @@ export default function Home() {
             endAdornment: (
               <InputAdornment>
                 <IconButton>
-                  <SearchIcon onClick={() => handleCategory()} /> {/*  */}
+                  <SearchIcon /> {/*  */}
                 </IconButton>
               </InputAdornment>
             ),
           }}
         />
       </main>
-      {/* </Container> */}
+
       <br />
 
       <Container align="center">
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image="https://www.cloud4c.com/sg/sites/sg/files/2023-01/fundamentals-of-data-analytics-as-a-service-banner.jpg"
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {username}
-              </Typography>
-
-              <Typography variant="h6" component="h2" align="left">
-                Summary:
-              </Typography>
-              <Typography align="left">
-                {summary &&
-                  summary
-                    .split("\n")
-                    .map((row, index) => <p key={row}>{row}</p>)}
-              </Typography>
-
-              <br />
-              <Typography variant="h6" component="h2" align="left">
-                Likes & Dislikes:
-              </Typography>
-              <Typography align="left">
-                {likedislike &&
-                  likedislike
-                    .split("\n")
-                    .map((row, index) => <p key={row}>{row}</p>)}
-              </Typography>
-
-              <br />
-              <Typography variant="h6" component="h2" align="left">
-                Personality:
-              </Typography>
-              <Typography align="left">
-                {personality &&
-                  personality
-                    .split("\n")
-                    .map((row, index) => <p key={row}>{row}</p>)}
-              </Typography>
-
-              <br />
-              {/* <Typography variant="h6" component="h2" align="left">
-                Keywords:
-              </Typography> */}
-              <Typography align="left">
-                {/* <Grid item container >
-              {keywords && keywords.split(",").map((data,index)=>
-                (
-                  
-                    <span style={{padding:'5px'}}>
-                    <Chip
-                      label={data}
-                      
-                      className={classes.chip}
-                    />
-                  </span>
-                ))}
-                </Grid> */}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions></CardActions>
-        </Card>
+        <Grid container spacing={2} align="center">
+          <ProjectTiles />
+        </Grid>
       </Container>
       <br />
     </React.Fragment>
