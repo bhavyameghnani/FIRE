@@ -93,7 +93,7 @@ export default function Home() {
     <React.Fragment>
       <CssBaseline />
       {loader && <Spinner></Spinner>}
-      <Header title="FIRE powered by GenAI" />
+      <Header title="FIRE powered by Generative AI" />
       <main>
         <MainFeaturedPost post={mainFeaturedPost} />
 

@@ -1,57 +1,63 @@
-import http from './http-common-servicecall'
+import http from "./http-common-servicecall";
 
 class ServiceCall {
+  generateIdeaDetails(ideaDetails) {
+    return http.post("/generateIdeaDetails", ideaDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 
-    userSignUp(userDetails) {
-        return http.post("/addUser", userDetails, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-    }
+  userSignUp(userDetails) {
+    return http.post("/addUser", userDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 
-    userSignIn(userLoginDetails) {
-        return http.post("/login", userLoginDetails, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-    }
+  userSignIn(userLoginDetails) {
+    return http.post("/login", userLoginDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 
-    addProject(projectDetails) {
-        return http.post("/addProject", projectDetails, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-    }
+  addProject(projectDetails) {
+    return http.post("/addProject", projectDetails, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 
-    getProject(id){
-        return http.get("/getProject/"+id, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-    }
+  getProject(id) {
+    return http.get("/getProject/" + id, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 
-    getAllProjects(){
-        return http.get("/getAllProjects", {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-    }
+  getAllProjects() {
+    return http.get("/getAllProjects", {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 
-    getSearchProjects(searchData){
-        let data = new FormData()
-        data.append('keyword', searchData)
-        return http.post("/getSearchProjects", data , {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        });
-    }
-
+  getSearchProjects(searchData) {
+    let data = new FormData();
+    data.append("keyword", searchData);
+    return http.post("/getSearchProjects", data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 }
 
 export default new ServiceCall();
