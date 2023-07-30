@@ -15,16 +15,6 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 
-# username = urllib.parse.quote_plus(config.USERNAME)
-# password = urllib.parse.quote_plus(config.PASSWORD)
-# cluster = urllib.parse.quote_plus(config.CLUSTER)
-# database = urllib.parse.quote_plus(config.DATABASE)
-
-# url = "mongodb+srv://{}:{}@{}/{}?retryWrites=true&w=majority".format(username, password, cluster, database)
-
-# client = MongoClient(url)
-# db = client.get_database('fire')
-
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -180,3 +170,14 @@ if __name__ == "__main__":
 #     response = records.insert_one(workspace)
 #     print(response)
 #     return response
+
+
+# username = urllib.parse.quote_plus(config.USERNAME)
+# password = urllib.parse.quote_plus(config.PASSWORD)
+# cluster = urllib.parse.quote_plus(config.CLUSTER)
+# database = urllib.parse.quote_plus(config.DATABASE)
+
+# url = "mongodb+srv://{}:{}@{}/{}?retryWrites=true&w=majority".format(username, password, cluster, database)
+
+# client = MongoClient(url)
+# db = client.get_database('fire')
